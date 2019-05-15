@@ -80,15 +80,13 @@
           <br>
         </address>
         <address>
-          <form action="https://formspree.io/uvacalabs@gmail.com" method="POST">
-            <div class="form-group">
-              <input type="email" class="form-control" id="EmailAddress" aria-describedby="emailHelp" placeholder="Enter email" name="_replyto">
-            </div>
-            <div class="form-group">
-              <input class="form-control" type="text" placeholder="Messages/Contact Details" name="name">
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </form> 
+          <form name="submit-to-google-sheet">
+           <input name="email" type="email" placeholder="Email" required>
+           <input name="firstName" type="text" placeholder="First Name">
+           <input name="lastName" type="text" placeholder="Last Name">
+           <input name="phoneNo" type="tel" placeholder="Phone Number"> 
+           <button type="submit">Send</button>
+          </form>
         </address>
       </div>
     </div>
@@ -143,6 +141,18 @@
     <!-- /.container -->
   </footer>
 
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbweEmsWerv9zZAjhVDRfZEW7vXORa4AnQGo59t014-jB60cjjI/exec'
+    const form = document.forms['submit-to-google-sheet']
+
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => console.log('Success!', response))
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+  
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
