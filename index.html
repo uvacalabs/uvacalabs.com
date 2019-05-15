@@ -141,6 +141,9 @@
     <!-- /.container -->
   </footer>
 
+  <script src="https://wzrd.in/standalone/formdata-polyfill"></script>
+  <script src="https://wzrd.in/standalone/promise-polyfill@latest"></script>
+  <script src="https://wzrd.in/standalone/whatwg-fetch@latest"></script>
   <script>
     const scriptURL = 'https://script.google.com/macros/s/AKfycbweEmsWerv9zZAjhVDRfZEW7vXORa4AnQGo59t014-jB60cjjI/exec'
     const form = document.forms['submit-to-google-sheet']
@@ -152,9 +155,6 @@
         .catch(error => console.error('Error!', error.message))
     })
   </script>
-  <script src="https://wzrd.in/standalone/formdata-polyfill"></script>
-  <script src="https://wzrd.in/standalone/promise-polyfill@latest"></script>
-  <script src="https://wzrd.in/standalone/whatwg-fetch@latest"></script>
 
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
