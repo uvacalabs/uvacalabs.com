@@ -79,7 +79,7 @@
           <br>
         </address>
         <address>
-          <div class="form-container">
+          <div class="form-group">
             <form name="submit-to-google-sheet">
              <input name="email" type="email" placeholder="Email" required>
              <input name="firstName" type="text" placeholder="First Name">
@@ -88,8 +88,8 @@
              <button type="submit">Send</button>
             </form>
             
-            <p class="js-success-message is-hidden">Success!</p>
-            <p class="js-error-message is-hidden">Error!</p>
+            <p class="js-success-message invisible">Success!</p>
+            <p class="js-error-message invisible">Error!</p>
           </div>
           <script>
             const scriptURL = 'https://script.google.com/macros/s/AKfycbweEmsWerv9zZAjhVDRfZEW7vXORa4AnQGo59t014-jB60cjjI/exec'
@@ -107,16 +107,16 @@
             function showSuccessMessage (response) {
               console.log('Success!', response)
               setTimeout(() => {
-                successMessage.classList.remove('is-hidden')
-                loading.classList.add('is-hidden')
+                successMessage.classList.remove('invisible')
+                loading.classList.add('invisible')
               }, 500)
             }
             
             function showErrorMessage (error) {
               console.error('Error!', error.message)
               setTimeout(() => {
-                errorMessage.classList.remove('is-hidden')
-                loading.classList.add('is-hidden')
+                errorMessage.classList.remove('invisible')
+                loading.classList.add('invisible')
               }, 500)
             }
           </script>
