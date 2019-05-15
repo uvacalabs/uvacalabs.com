@@ -16,6 +16,11 @@
   <!-- Custom styles for this template -->
   <link href="css/business-frontpage.css" rel="stylesheet">
 
+  <script src="https://unpkg.com/prefixfree@1.0.0/prefixfree.min.js"></script>
+  <script src="https://wzrd.in/standalone/formdata-polyfill@latest"></script>
+  <script src="https://wzrd.in/standalone/promise-polyfill@latest"></script>
+  <script src="https://wzrd.in/standalone/whatwg-fetch@latest"></script>
+  
 </head>
 
 <body>
@@ -79,21 +84,25 @@
           <br>Santa Clara, CA 95054 USA
           <br>
         </address>
-          <form name="submit-to-google-sheet">
-           <input name="email" type="email" placeholder="Email" required>
-           <input name="firstName" type="text" placeholder="First Name">
-           <input name="lastName" type="text" placeholder="Last Name">
-           <input name="phoneNo" type="tel" placeholder="Phone Number"> 
-           <button type="submit">Send</button>
-          </form>
-          <div class="loading js-loading is-hidden">
-            <div class="loading-spinner">
-              <svg><circle cx="25" cy="25" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/></svg>
+        <address>
+          <div class="form-container">
+            <form name="submit-to-google-sheet">
+             <input name="email" type="email" placeholder="Email" required>
+             <input name="firstName" type="text" placeholder="First Name">
+             <input name="lastName" type="text" placeholder="Last Name">
+             <input name="phoneNo" type="tel" placeholder="Phone Number"> 
+             <button type="submit">Send</button>
+            </form>
+            <div class="loading js-loading is-hidden">
+              <div class="loading-spinner">
+                <svg><circle cx="25" cy="25" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/></svg>
+              </div>
             </div>
-          </div>
 
-          <p class="js-success-message is-hidden">Success!</p>
-          <p class="js-error-message is-hidden">Error!</p>
+            <p class="js-success-message is-hidden">Success!</p>
+            <p class="js-error-message is-hidden">Error!</p>
+          </div>
+        </address>
       </div>
     </div>
     <!-- /.row -->
@@ -152,6 +161,7 @@
     const loading = document.querySelector('.js-loading')
     const successMessage = document.querySelector('.js-success-message')
     const errorMessage = document.querySelector('.js-error-message')
+    
     form.addEventListener('submit', e => {
     e.preventDefault()
     fetch(scriptURL, { method: 'POST', body: new FormData(form)})
