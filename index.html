@@ -108,7 +108,7 @@
               console.log('Success!', response)
               setTimeout(() => {
                 successMessage.classList.remove('hidden')
-                loading.classList.add('visible')
+                loading.classList.add('hidden')
               }, 500)
             }
             
@@ -116,7 +116,7 @@
               console.error('Error!', error.message)
               setTimeout(() => {
                 errorMessage.classList.remove('hidden')
-                loading.classList.add('visible')
+                loading.classList.add('hidden')
               }, 500)
             }
           </script>
